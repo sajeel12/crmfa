@@ -147,9 +147,9 @@ function NavAdmin({ username, isadmin }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            HS Logistics      {isadmin? 'Admin' : ''}  
+            Digital Solution Hub      {isadmin? 'Admin' : ''}  
           </Typography>
-          <Typography variant="h6" sx={{ marginLeft: 100, color:'white',  }} >
+          <Typography variant="h6" sx={{ marginLeft: 50, color:'white',  }} >
             {username}
           </Typography>
         </Toolbar>

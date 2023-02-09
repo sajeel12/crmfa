@@ -8,20 +8,20 @@ import {
     FormGroup,
     Label,
     Input,
-    NavLink, 
+    NavLink,
     Alert
 } from 'reactstrap';
 import { connect } from "react-redux";
 
 import PropTypes from 'prop-types';
-import { login } from "../../actions/authActions"; 
+import { login } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 
 
 class LoginModel extends Component {
     state = {
         modal: false,
-   
+
         username: '',
         password: '',
         msg: null
@@ -35,23 +35,23 @@ class LoginModel extends Component {
     }
 
 
-componentDidUpdate(prevProps){
-    const {error, isAuthenticated} = this.props;
-    if (error !== prevProps.error ){
-        //check for  regiser error
-        if (error.id === 'LOGIN_FAIL' ){
-            this.setState({msg: error.msg.msg});
-        }else{
-            this.setState({msg: null})
+    componentDidUpdate(prevProps) {
+        const { error, isAuthenticated } = this.props;
+        if (error !== prevProps.error) {
+            //check for  regiser error
+            if (error.id === 'LOGIN_FAIL') {
+                this.setState({ msg: error.msg.msg });
+            } else {
+                this.setState({ msg: null })
+            }
         }
-    }
 
-    if(this.state.modal ){
-        if(isAuthenticated){
-            this.toggle();
+        if (this.state.modal) {
+            if (isAuthenticated) {
+                this.toggle();
+            }
         }
     }
-}
 
     toggle = () => {
         // clear errors
@@ -69,12 +69,12 @@ componentDidUpdate(prevProps){
     onSubmit = (e) => {
         e.preventDefault();
 
-        const {username, password} = this.state;
+        const { username, password } = this.state;
 
         // create user object 
 
         const newUser = {
-            
+
             username,
             password
         };
@@ -82,8 +82,8 @@ componentDidUpdate(prevProps){
         // attemp to login
         this.props.login(newUser);
 
-
         
+
     }
 
 
@@ -101,12 +101,12 @@ componentDidUpdate(prevProps){
                 >
                     <ModalHeader toggle={this.toggle} >Login</ModalHeader>
                     <ModalBody>
-                        { this.state.msg ? (<Alert color="danger" >{this.state.msg}</Alert>)
-                        : null }
+                        {this.state.msg ? (<Alert color="danger" >{this.state.msg}</Alert>)
+                            : null}
                         <Form onSubmit={this.onSubmit} >
                             <FormGroup>
-                                
-                                 <Label for="email" >email</Label>
+
+                                <Label for="email" >email</Label>
                                 <Input
                                     type="text"
                                     name="username"
@@ -114,7 +114,7 @@ componentDidUpdate(prevProps){
                                     placeholder="email"
                                     onChange={this.onChange}
                                 />
-                                 <Label for="name" >password</Label>
+                                <Label for="name" >password</Label>
                                 <Input
                                     type="password"
                                     name="password"

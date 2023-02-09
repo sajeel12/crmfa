@@ -42,8 +42,10 @@ class Main extends Component {
                     <LoginModal /> :
                     // user.isadmin ?
 
+                        <>
                         <MainAdmin /> 
-
+                        
+                        </>
                         // <MainClient />
 
 
