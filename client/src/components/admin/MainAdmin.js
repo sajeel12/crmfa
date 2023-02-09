@@ -38,7 +38,7 @@ class MainAdmin extends Component {
 
                     <Box sx={{ display: 'flex' }}>
                         <Box sx={{ display: 'flex' }}>
-                            <NavAdmin username={user.name} isadmin={user.isadmin} />
+                            <NavAdmin username={user.username} isadmin={user.isadmin} />
 
                             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                                 <this.DrawerHeader />

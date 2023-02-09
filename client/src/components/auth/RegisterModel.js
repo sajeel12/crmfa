@@ -52,7 +52,8 @@ class RegisterModel extends Component {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
         register: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired
     }
 
 
@@ -99,7 +100,7 @@ class RegisterModel extends Component {
         const { isadmin, username, fullname, email, phoneno, password } = this.state;
 
         // create user object 
-
+      
         const newUser = {
             isadmin,
             username,
@@ -227,6 +228,7 @@ RegisterModel.propTypes = {
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
+    auth: state.auth,
     error: state.error
 });
 

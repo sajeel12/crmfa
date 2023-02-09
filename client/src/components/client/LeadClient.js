@@ -108,10 +108,10 @@ class LeadClient extends Component {
                                                     
                                                         <SendMail email={row.email} />
                                                     
-                                                    <Button variant="contained" sx={{ width: 150, backgroundColor:'black' , borderRadius:50 }} >Send Message</Button>
+                                                    {/* <Button variant="contained" sx={{ width: 150, backgroundColor:'black' , borderRadius:50 }} >Send Message</Button>
                                                     <Button variant="contained" sx={{ width: 80 , backgroundColor:'black', borderRadius:50 }} >Orange</Button>
                                                     <Button variant="contained" sx={{ width: 160 , backgroundColor:'black', borderRadius:50 }}>update Status</Button>
-                                                    <Button variant="contained" sx={{ width: 80 , backgroundColor:'black', borderRadius:50 }}>update</Button>
+                                                    <Button variant="contained" sx={{ width: 80 , backgroundColor:'black', borderRadius:50 }}>update</Button> */}
                                                 </Stack>
                                             </StyledTableCell>
                                         </>

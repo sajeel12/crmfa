@@ -94,13 +94,13 @@ class SendMail extends Component {
         const { subject} = this.state;
         const { user } = this.props.auth;
         const to = this.props.email;
-        const from = user.email
-        mail = {
+        const from = user.email;
+
+       const mail = {
             from,
             to,
             subject
             
-
         }
         
         sendMail(mail);

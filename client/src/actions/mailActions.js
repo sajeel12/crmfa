@@ -1,5 +1,6 @@
-import { MAIL_SUCCESS,} from '../actions/types';
+import { MAIL_SUCCESS, MAIL_FAIL} from '../actions/types';
 import axios from 'axios';
+import { returnErrors } from './errorActions';
 
 
 
