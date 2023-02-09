@@ -17,6 +17,7 @@ router.get('/',(req, res) => {
 router.post('/', (req, res) => {
     const newLead = new Lead({
         
+        owner: req.body.owner,
         fullname: req.body.fullname,
         email: req.body.email,
         phoneno: req.body.phoneno,

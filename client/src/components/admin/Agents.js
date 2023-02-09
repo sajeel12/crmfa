@@ -66,7 +66,7 @@ class Agents extends Component {
         return (
             <Container sx={{ width: 1400 }}  >
                 <TableContainer component={Paper} sx={{maxHeight:500, maxWidth:1600 , overflowY:'scroll' }}  >
-                    <Table sx={{ minWidth: 1000 }} aria-label="customized table">
+                    <Table sx={{ minWidth: 1000, minHeight:200 }} aria-label="customized table">
                         <TableHead>
                             <TableRow>
                                 

@@ -8,11 +8,17 @@ import { v1 as uuid } from 'uuid';
 
 
 import { connect } from "react-redux";
-import {addLead} from '../../actions/leadActions'
+import { addLead } from '../../actions/leadActions'
 import PropTypes from 'prop-types';
 
 
 class AddLead extends Component {
+
+    static propTypes = {
+        auth: PropTypes.object.isRequired
+    }
+
+
     style = {
         position: 'absolute',
         top: '50%',
@@ -46,32 +52,34 @@ class AddLead extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        if(this.state.fullname !== '' && this.state.destinationcity !== '' ){
-        const newLead = {
-            id: uuid(),
-            fullname: this.state.fullname, 
-            email: this.state.email, 
-            phoneno: this.state.phoneno, 
-            originaddress: this.state.originaddress, 
-            origincity: this.state.origincity, 
-            originstate: this.state.originstate, 
-            originzipcode: this.state.originzipcode, 
-            destinationaddress: this.state.destinationaddress, 
-            destinationcity: this.state.destinationcity, 
-            destinationstate: this.state.destinationstate, 
-            destinationzipcode: this.state.destinationzipcode, 
-            model: this.state.model, 
-            make: this.state.make, 
-            vehicletype: this.state.vehicletype, 
-           
-        };
+        if (this.state.fullname !== '' && this.state.destinationcity !== '') {
+            const {user} = this.props.auth;
+            const newLead = {
+                id: uuid(),
+                owner: user.username,
+                fullname: this.state.fullname,
+                email: this.state.email,
+                phoneno: this.state.phoneno,
+                originaddress: this.state.originaddress,
+                origincity: this.state.origincity,
+                originstate: this.state.originstate,
+                originzipcode: this.state.originzipcode,
+                destinationaddress: this.state.destinationaddress,
+                destinationcity: this.state.destinationcity,
+                destinationstate: this.state.destinationstate,
+                destinationzipcode: this.state.destinationzipcode,
+                model: this.state.model,
+                make: this.state.make,
+                vehicletype: this.state.vehicletype,
 
-        this.props.addLead(newLead);
-        this.handleClose();
-    }
-    else{
-        alert('fill all fields')
-    }
+            };
+
+            this.props.addLead(newLead);
+            this.handleClose();
+        }
+        else {
+            alert('fill all fields')
+        }
     }
 
     onChange = (e) => {
@@ -89,7 +97,7 @@ class AddLead extends Component {
         return (
             <div>
                 <Button onClick={this.handleClose} variant='contained'
-                    sx={{ marginBottom: 5,marginLeft:20, backgroundColor: 'black', borderRadius:50  }}
+                    sx={{ marginBottom: 5, marginLeft: 20, backgroundColor: 'black', borderRadius: 50 }}
                 >
                     Add Lead
                 </Button>
@@ -255,9 +263,10 @@ class AddLead extends Component {
 
 
 const mapStateToProps = (state) => ({
-    lead: state.lead
+    lead: state.lead,
+    auth: state.auth
 });
 
 
 
-export default connect(mapStateToProps, {addLead})(AddLead);
+export default connect(mapStateToProps, { addLead })(AddLead);

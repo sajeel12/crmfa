@@ -5,6 +5,10 @@ const User = require('./User');
 // create schema 
 
 const LeadSchema = new Schema({
+    owner: {
+        type: String,
+        required: true
+    },
     fullname: {
         type: String,
         required: true
