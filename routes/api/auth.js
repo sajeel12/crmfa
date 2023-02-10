@@ -38,7 +38,10 @@ router.post('/', (req, res) => {
                                 token,
                                 user: {
                                     id: user.id,
-                                    name: user.name,
+                                    isadmin:user.isadmin,
+                                    fullname: user.fullname,
+                                    username: user.username,
+                                    phoneno: user.phoneno,
                                     email: user.name,
                                     password: user.password
                                 }
@@ -54,6 +57,7 @@ router.post('/', (req, res) => {
 
 
 router.get('/user', auth, (req, res) => {
+
     User.findById(req.user.id)
         .select('-password')
         .then(user => res.json(user))

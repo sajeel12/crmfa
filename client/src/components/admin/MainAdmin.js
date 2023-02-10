@@ -39,7 +39,6 @@ class MainAdmin extends Component {
                     <Box sx={{ display: 'flex' }}>
                         <Box sx={{ display: 'flex' }}>
                             <NavAdmin username={user.username} isadmin={user.isadmin} />
-
                             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                                 <this.DrawerHeader />
 
@@ -50,6 +49,7 @@ class MainAdmin extends Component {
 
 
                                         <BodyAdmin />
+                                        
                                     } />
                                     <Route path='agents' element={
 

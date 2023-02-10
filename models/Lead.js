@@ -21,12 +21,6 @@ const LeadSchema = new Schema({
         type: String,
         required: true
     },
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User,
-        required: false
-    },
-
     recieveddate: {
         type: Date,
         default: Date.now

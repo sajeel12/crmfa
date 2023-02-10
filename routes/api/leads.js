@@ -7,7 +7,8 @@ const auth = require('../../middleware/auth')
 const Lead = require('../../models/Lead')
 
 // get request 
-router.get('/',(req, res) => {
+router.get('/', (req, res) => {
+    // console.log(req.user.id);
     Lead.find()
         .sort({ recieveddate: -1})
         .then(leads => res.json(leads))

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
-export const getLeads = () => dispatch => {
+export const getLeads = () => (dispatch) => {
     dispatch(setLeadLoading());
 
     axios.get('/api/leads').then(res =>
@@ -26,7 +26,7 @@ export const deleteLead = (id) => (dispatch, getState) => {
             dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
-export const addLead = (lead) => (dispatch, getState) => {
+export const addLead = (lead) => (dispatch) => {
     axios.post('/api/leads', lead)
         .then(res => dispatch({
             type: ADD_LEAD,
